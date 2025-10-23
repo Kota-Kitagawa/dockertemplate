@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  base:
+    build: ./base
+    volumes:
+      - ./storage:/storage
+    ports:
+      - "2222:22"
+    command: ["tail", "-f", "/dev/null"]
