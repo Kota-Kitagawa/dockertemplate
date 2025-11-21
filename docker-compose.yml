@@ -8,3 +8,14 @@ services:
     ports:
       - "2222:22"
     command: ["tail", "-f", "/dev/null"]
+  
+  mysql:
+    build: ./mysql
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'p@ssword'
+
+  volumes:
+    db_data: {}
